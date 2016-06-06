@@ -39,11 +39,9 @@ theme:
 markdown: kramdown
 
 # Permalinks
-#permalink: pretty
-permalink: /:title
+-permalink: pretty
 
 gems: [jekyll-paginate]
-
 # Pagination config
 paginate: 5
 
