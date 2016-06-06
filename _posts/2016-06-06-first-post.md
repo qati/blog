@@ -9,3 +9,5 @@ browser_title: 'First post for GSOC 2016'
 ---
 
 I will use this blog to post about my work in Google Summer of Code 2016.
+
+{% include posts/gsoc16/jsdraw.html part="1" file="correlation_matrix" method="drawTH2" %}

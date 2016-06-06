@@ -1,0 +1,29 @@
+<div id="result"></div>
+<script type="text/javascript">
+require.config({
+       paths: {
+           'JsMVA':'https://rawgit.com/qati/GSOC16/master/src/js/JsMVA'
+       }
+   });
+   if ((console!==undefined) && (typeof console.log == 'function')){
+       console.log("JsMVA source_dir="+"$PATH");
+   }
+
+
+var xmlhttp = new XMLHttpRequest();
+var url = "http://qati.github.io/json/jsmva/part1/correlation_matrix.json";
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        draw(xmlhttp.responseText);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function draw(str) {
+  require(['JsMVA'],function(jsmva){
+      jsmva.drawTH2("result", str);
+  });
+}
+</script>
