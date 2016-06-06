@@ -1,4 +1,4 @@
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-redirect-from]
 title: Google Summer of Code Blog
 tagline: CERN SFT
 email: battila93@gmail.com
