@@ -39,7 +39,7 @@ theme:
 markdown: kramdown
 
 # Permalinks
--permalink: pretty/
+permalink: "/:title/"
 
 gems: [jekyll-paginate]
 # Pagination config
