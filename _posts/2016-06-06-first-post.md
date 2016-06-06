@@ -3,7 +3,7 @@ layout: post
 title: "First post"
 category:
 - gsoc16
-permalink: gsoc16-first-post
+permalink: gsoc16-first-post/
 meta_description: 'Setting up my blog'
 browser_title: 'First post for GSOC 2016'
 ---
