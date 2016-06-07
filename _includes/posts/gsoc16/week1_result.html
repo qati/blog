@@ -1,0 +1,20 @@
+<script src="https://root.cern.ch/js/notebook/scripts/JSRootCore.min.js?jq2d&onload=calls" type="text/javascript"></script>
+<link rel="stylesheet" href="https://root.cern.ch/js/notebook/style/jquery-ui.min.css">
+<script type="application/javascript" src="/assets/js/posts/TMVAGui.js"></script>
+<script type="text/javascript">
+function calls(){
+    var gui = new TMVAGui("http://qati.github.io/data/root/TMVA.root+", "stage", "divmenu");
+    gui.menu();
+}
+</script>
+<style>
+        .ui-menu { width: 240px; }
+        #TMVAGuimenu li {font-size: xx-small;}
+        #content {
+            width: 800px;
+        }
+</style
+<div id="content">
+        <div id="divmenu"></div>
+        <div id="stage"></div>
+</div>
