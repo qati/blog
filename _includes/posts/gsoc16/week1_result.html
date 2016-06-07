@@ -1,8 +1,14 @@
-<!--<script src="https://root.cern.ch/js/notebook/scripts/JSRootCore.min.js?jq2d&onload=calls" type="text/javascript"></script>-->
 <link rel="stylesheet" href="https://root.cern.ch/js/notebook/style/jquery-ui.min.css">
 <script type="application/javascript" src="/assets/js/posts/TMVAGui.js"></script>
 <script type="text/javascript">
-function calls(){}
+var codeblocks = document.getElementsByClassName('highlight');
+
+for (var i = 0; i < codeblocks.length; ++i) {
+  var item = codeblocks[i];
+  // console.log("Old height:" + " " + item.offsetHeight);
+  item.style.height = item.offsetHeight - 10 + 'px';
+  // console.log("New height:" + " " + item.offsetHeight);
+}
   require.config({
     paths:{
     "JsROOT": "https://root.cern.ch/js/notebook/scripts/JSRootCore.min",
