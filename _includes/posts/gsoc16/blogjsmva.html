@@ -1,0 +1,22 @@
+<script type="text/javascript">
+function getContainer(){
+  var scriptTag = document.getElementsByTagName('script');
+  scriptTag = scriptTag[scriptTag.length - 1];
+  return scriptTag.parentNode;
+}
+require.config({
+  paths:{
+    'blogJsMVA':'https://rawgit.com/qati/GSOC16/master/src/js/blogJsMVA'
+  }
+});
+var jsmva_div_num = (function(){
+  var num = 0;
+  return function(action){
+    if (action===undefined){
+      return num;
+    }
+    num += 1;
+    return;
+  }
+})();
+</script>

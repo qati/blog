@@ -1,23 +1,11 @@
 <script type="text/javascript">
-function getContainer(){
-  var scriptTag = document.getElementsByTagName('script');
-  scriptTag = scriptTag[scriptTag.length - 1];
-  return scriptTag.parentNode;
-}
-var container = getContainer();
-var jsmva_draw_divid;
-if (jsmva_draw_divid===undefined){
-  jsmva_draw_divid = 0;
-} else {
-  jsmva_draw_divid += 1;
-}
-container.innerHTML += "<div id='jsmvadraw_"+jsmva_draw_divid+"'></div>";
-require.config({
-  paths:{
-    'blogJsMVA':'http://localhost:8888/tree/GSOC/wd/src/js/blogJsMVA'
-  }
-});
-require(["blogJsMVA"], function(blogjsmva){
-  blogjsmva.draw({{include.part}}, "{{include.file}}", "{{include.method}}", "jsmvadraw_"+jsmva_draw_divid);
-});
+(function(){
+  jsmva_div_num(1);
+  var container = getContainer();
+  var num = jsmva_div_num();
+  container.innerHTML += "<div id='jsmvadraw_"+num+"'></div>";
+  require(["blogJsMVA"], function(blogjsmva){
+    blogjsmva.draw({{include.part}}, "{{include.file}}", "{{include.method}}", "jsmvadraw_"+num);
+  });
+})();
 </script>
