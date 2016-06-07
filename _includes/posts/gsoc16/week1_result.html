@@ -1,11 +1,19 @@
-<script src="https://root.cern.ch/js/notebook/scripts/JSRootCore.min.js?jq2d&onload=calls" type="text/javascript"></script>
+<!--<script src="https://root.cern.ch/js/notebook/scripts/JSRootCore.min.js?jq2d&onload=calls" type="text/javascript"></script>-->
 <link rel="stylesheet" href="https://root.cern.ch/js/notebook/style/jquery-ui.min.css">
 <script type="application/javascript" src="/assets/js/posts/TMVAGui.js"></script>
 <script type="text/javascript">
-function calls(){
-    var gui = new TMVAGui("http://qati.github.io/data/root/TMVA.root+", "stage", "divmenu");
+function calls(){}
+  require.config({
+    paths:{
+    "JsROOT": "https://root.cern.ch/js/notebook/scripts/JSRootCore.min",
+    "jquery": "https://root.cern.ch/js/notebook/scripts/jquery.min",
+    "jquery-ui": "https://root.cern.ch/js/notebook/scripts/jquery-ui.min"
+    }
+  });
+  require(["JsROOT", "jquery", "jquery-ui"], function(jsroot){
+    var gui = new TMVAGui("http://qati.github.io/data/root/TMVA.root+", "stage", "divmenu", jsroot);
     gui.menu();
-}
+});
 </script>
 <style>
         .ui-menu { width: 240px; }

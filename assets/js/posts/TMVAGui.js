@@ -1,8 +1,10 @@
-function TMVAGui(filename, stageid, menuid){
+function TMVAGui(filename, stageid, menuid, jsroot){
     var mo    = this;
     var calls = [];
     var IAmTheFirst = true;
     var insidecall  = false;
+
+    var JSROOT = jsroot;
 
     var types = {
         "kMVAType": 1,
@@ -161,7 +163,7 @@ function TMVAGui(filename, stageid, menuid){
                         console.log("TMVAGui::callJQuery bad input from menu! arr[0]="+arr[0]);
                         break;
                 }
-            });	
+            });
 			});
         });
     };
