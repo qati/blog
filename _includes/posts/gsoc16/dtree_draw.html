@@ -1,0 +1,13 @@
+<div id="jsmva_dtree_1" style="width:800px;height:450px;"></div>
+<script tpye="text/javascript">
+  require.config({
+    paths: {
+      dtree: "https://rawgit.com/qati/GSOC16/master/src/js/DecisionTree"
+    }
+  });
+
+      require(['dtree'],function(dtree){
+        var jsontxt='{"variables": ["var1+var2", "var1-var2", "var3", "var4"], "tree": {"info": {"Cut": "-2.2410600185394287e+00", "IVar": "3", "purity": "4.4245621562004089e-01", "pos": 0}, "children": [{"info": {"Cut": "2.2773640155792236e+00", "IVar": "0", "purity": "4.7790309786796570e-01", "pos": "l"}, "children": [{"info": {"Cut": "1.1225386857986450e+00", "IVar": "3", "purity": "5.2420860528945923e-01", "pos": "l"}, "children": [{"info": {"Cut": "0.0000000000000000e+00", "IVar": "-1", "purity": "7.2187876701354980e-01", "pos": "l"}, "children": []}, {"info": {"Cut": "0.0000000000000000e+00", "IVar": "-1", "purity": "4.7957077622413635e-01", "pos": "r"}, "children": []}]}, {"info": {"Cut": "-1.0061374902725220e+00", "IVar": "1", "purity": "3.4954592585563660e-01", "pos": "r"}, "children": [{"info": {"Cut": "0.0000000000000000e+00", "IVar": "-1", "purity": "5.6726294755935669e-01", "pos": "l"}, "children": []}, {"info": {"Cut": "0.0000000000000000e+00", "IVar": "-1", "purity": "3.0147132277488708e-01", "pos": "r"}, "children": []}]}]}, {"info": {"Cut": "-3.0450844764709473e+00", "IVar": "-1", "purity": "4.0342181921005249e-02", "pos": "r"}, "children": []}]}}';
+        dtree.draw("jsmva_dtree_1", JSON.parse(jsontxt));
+      });
+</script>
