@@ -538,6 +538,12 @@ img {
   overflow: hidden;
 }
 
+.post_pinned {
+  border: 1px solid #ff4d4d;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #ff9999;
+}
+
 /* Article title / Page title */
 .post-title a {
   color: $color-1;

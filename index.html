@@ -1,9 +1,50 @@
 ---
 layout: default
 ---
-
 <div class="posts">
   {% for post in paginator.posts %}
+  {% if post.status == 'pinned' %}
+  {% assign post_url = post.url | append: '/' | replace: '//', '/' | prepend: site.baseurl | prepend: site.url | %}
+  <article class="post post_pinned">
+
+    {% if post.banner_image %}
+    <div class="banner-image">
+      <a href="{{ post_url }}"
+        title="{{ post.title }}">
+      <img 
+          src="{{ "/assets/images/" | append: post.banner_image | prepend: site.baseurl | prepend: site.url }}" 
+          alt="{% if post.banner_image_alt %}{{ post.banner_image_alt }}{% else %}{{ post.title }} {% endif %}">
+      </a>
+    </div>
+    {% endif %}
+
+    <h1 class="post-title">
+      <a href="{{ post.url | append: '/' | replace: '//', '/' | prepend: site.baseurl | prepend: site.url |  }}">
+        {{ post.title }}
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    {% if (post.categories.size > 0 %}
+      <span class="categories">
+      {{ post.categories | array_to_sentence_string }}
+      </span> |
+    {% endif %}
+    <span class="post-date">
+    {{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}  
+    </span>
+    </p>
+
+    {{ post.excerpt }}
+    <a href="{{ post.url | append: '/' | replace: '//', '/' | prepend: site.baseurl | prepend: site.url |  }}">
+      Continue reading »
+    </a>
+  </article>
+  {% endif %}
+  {% endfor %}
+  
+  {% for post in paginator.posts %}
+  {% if post.status != 'pinned' %}
   {% assign post_url = post.url | append: '/' | replace: '//', '/' | prepend: site.baseurl | prepend: site.url | %}
   <article class="post">
 
@@ -40,6 +81,7 @@ layout: default
       Continue reading »
     </a>
   </article>
+  {% endif %}
   {% endfor %}
 </div>
 
