@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GSOC2016: Week 6 </title>
+    <meta name="description" content="GSOC2016: Week 6">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Week 6: Blog, bug fixes, neural network visualization - Google Summer of Code Blog"><meta property="og:site_name" content="Google Summer of Code Blog"><meta property="og:description" content="GSOC2016: Week 6"><meta property="og:url" content="/gsoc16/week/6/"><meta property="article:published_time" content="2016-06-09T00:00:00+02:00"><meta property="article:author" content="/about">
+
+    
+
+    
+    <meta name="google-site-verification" content="UA-78841281-1" />
+    
+
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="prefetch" href="">
+    <link rel="canonical" href="/gsoc16/week/6/">
+    <link rel="stylesheet"
+    href="/assets/css/main.css">
+
+    <!-- IE Fixes -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">a,.post-title a{color:#205081}a:hover{border-bottom-color:#205081}.sidebar{background-color:#205081}.wc-top,.sidebar-toggle:active,#sidebar-checkbox:checked ~ .sidebar-toggle{background-color:#205081}.sidebar a:hover,.sidebar .sidebar-nav a{border-bottom-color:#255d95}.sidebar .sidebar-nav{border-top-color:#255d95}.sidebar .sidebar-nav a.sidebar-nav-item:hover,.sidebar .sidebar-nav a.sidebar-nav-item:focus{background:#23588d}.sidebar .sidebar-nav .sidebar-nav-item.active{background-color:#1d4875}ul.social-media li>a{background-color:#1d4875;border-color:#255d95;border-bottom-color:#255d95 !important}ul.social-media li>a:hover{background-color:#b4d0ec}.btn{border-color:#205081;background:#205081}.btn:hover,.btn:focus{border-color:#1b436d;background:#1b436d}ul ol{padding-left:30px}ul ul{padding-left:30px}</style>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js"></script>
+    <script type="text/javascript">
+function getContainer(){
+  var scriptTag = document.getElementsByTagName('script');
+  scriptTag = scriptTag[scriptTag.length - 1];
+  return scriptTag.parentNode;
+}
+require.config({
+  paths:{
+    'blogJsMVA':'https://rawgit.com/qati/GSOC16/master/src/js/blogJsMVA.min'
+  }
+});
+var jsmva_div_num = (function(){
+  var num = 0;
+  return function(action){
+    if (action===undefined){
+      return num;
+    }
+    num += 1;
+    return;
+  }
+})();
+</script>
+
+  </head>
+  <body>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><div class="sidebar" id="sidebar">    <img    src="/assets/images/avatar.jpg"    alt="Google Summer of Code Blog" />    <div class="sidebar-info">      <p>        This is my Blog for Google Summer of Code. I'm working on TMVA (machine learning framework, part of ROOT) and Jupyter integration layer at CERN SFT.      </p>  </div>  <nav class="sidebar-nav">    <a class="sidebar-nav-item"      href="/">      Home    </a>                <a class="sidebar-nav-item "      href="/about">      About me    </a>                <a class="sidebar-nav-item "      href="/archive">      Blog Archive    </a>        <a class="sidebar-nav-item"      href="http://github.com/qati"      target="_blank">      GitHub    </a>  </nav>  <div class="sidebar-info small">     <p>       Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.       Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>     </p>  </div>  <ul class="social-media">        <li>        <a title="q_atti on Twitter"             href="https://twitter.com/q_atti"             class="twitter wc-img-replace" target="_blank">Twitter</a>    </li>                   <li>        <a title="battila93 on Facebook"             href="https://facebook.com/battila93"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>            <li>        <a title="qati on Github"             href="https://github.com/qati"             class="github wc-img-replace" target="_blank">Github</a>    </li>                 <li>        <a title="Subscribe via RSS"             href="/feed.xml"            class="rss wc-img-replace" target="_blank">            RSS        </a>    </li></ul></div>
+
+    <div class="main-wrapper">
+      <div class="header">
+        <div class="container">
+          <div class="header-logo"><a href="/"   title="Google Summer of Code Blog">  <img     src="/assets/images/logo.png"    alt="Google Summer of Code Blog" /></a></div>
+          <div class="header-title">
+            <a href="/"
+              title="Google Summer of Code Blog">
+              <h3>Google Summer of Code Blog<small>CERN SFT</small></h3>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+          <div class="post">
+
+  
+
+  
+
+  <header class="post-header">
+    <h1 class="post-title">Week 6: Blog, bug fixes, neural network visualization</h1>
+    <p class="post-meta">
+    
+      <span class="categories">
+      gsoc16 and full-time_week
+      </span> |
+    
+    <span class="post-date">
+    Jun 9, 2016  
+    </span>
+    </p>
+  </header>
+
+  <article class="post-content">
+    <p>This week I created this blog and added support for drawing neural networks for MLP.</p>
+
+<h2 id="question">Question</h2>
+<p>In <code class="highlighter-rouge">JsMVA.DataLoader.GetInputVariableHist</code> function I need to have access to <code class="highlighter-rouge">TMVA::MethodBase::CreateVariableTransforms</code> function, which is <strong>private</strong>, so I made public. How can we avoid making this function public? Is there other solution than rewriting in python?</p>
+
+<h2 id="blog">Blog</h2>
+<p>I decided I will use Jekyll and github pages to post about my work. First I learnt how this works, then I had some error with URL at github, now this is solved. I added sharing in email option to my page, because if I want to share a new post mostly I will do in email. I also added support for scrollbar in code highlight and fixing the size of these boxes.
+In my work all my outputs are JavaScript based plots, which easily can be used outside of notebook too. So I thought it would be nice, if in my blog I’m able to show my result. To be able to do this, first I created a python module: SavaJSON. If we import this module, it will change the JPyInterface.JsDraw.Draw method to it’s own, which is similar to JPyInterface’s method, but will save the JSON string. Also contains a method which will save the string to file. In this simple way I save all my plots, I copy to my blog directory. I also wrote a blogJsMVA class in JavaScript which will use the JsMVA to produce plots from JSON. Finally I added a new functionality to my page: calling
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">#%</span><span class="w"> </span><span class="err">include</span><span class="w"> </span><span class="err">jsdraw.html</span><span class="w"> </span><span class="err">part='1'</span><span class="w"> </span><span class="err">file='json_name'</span><span class="w"> </span><span class="err">method='jsmva_drawing_method'</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> will produce the nice plots. You can see example for this in week 4 and week 5.</p>
+
+<h2 id="small-stuffs">Small stuffs</h2>
+
+<h3 id="defaultdatasetinfo-and-log">DefaultDataSetInfo() and Log</h3>
+
+<p>I solved the privacy problems what occurred when I tried to use  <code class="highlighter-rouge">TMVA::DefaultDataSetInfo()</code> from python. In last week I solved this
+problem by making the function public, but from TMVA part I got some concerns about this, so I wrote a new method <code class="highlighter-rouge">JsMVA.DataLoader.__DefaultDataSetInfo</code>, which won’t be accessible in notebook environment but do the same in python as the <code class="highlighter-rouge">TMVA::DefaultDataSetInfo()</code>.
+The implementation of this is the following:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">____DefaultDataSetInfo</span><span class="p">(</span><span class="n">dl</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">dl</span><span class="o">.</span><span class="n">AddDataSet</span><span class="p">(</span><span class="n">dl</span><span class="o">.</span><span class="n">GetName</span><span class="p">())</span></code></pre></figure>
+
+<p>I also needed to put the <code class="highlighter-rouge">TMVA::Configurable::Log()</code> function public because I had to have access to that function in python. Now I create
+a new <code class="highlighter-rouge">TMVA::MsgLogger</code> object in <code class="highlighter-rouge">JsMVA.DataLoader</code> and I use this when I need access to logging.</p>
+
+<h3 id="classifier-cut-efficiencies">Classifier Cut Efficiencies</h3>
+
+<p>I had some problems with <code class="highlighter-rouge">factory.DrawCutEfficiencies(dataset, method)</code> function: the “Significance” axis x position depended on the
+method, which made the whole plot look awful, because for example if for method MLP the axis was at right place, when I made the same plot
+for method BDT the axis moved inside the plot. I was able to solve the x coordinate problem. The y coordinate position of the axis still depends on the method, and I don’t see why (the y range not really changes). My solution is the following:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">wx</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigE</span><span class="o">.</span><span class="n">GetXaxis</span><span class="p">()</span><span class="o">.</span><span class="n">GetXmax</span><span class="p">()</span><span class="o">+</span><span class="nb">abs</span><span class="p">(</span><span class="n">sigE</span><span class="o">.</span><span class="n">GetXaxis</span><span class="p">()</span><span class="o">.</span><span class="n">GetXmin</span><span class="p">()))</span><span class="o">*</span><span class="mf">0.135</span>
+  <span class="n">rightAxis</span> <span class="o">=</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">TGaxis</span><span class="p">(</span> <span class="n">sigE</span><span class="o">.</span><span class="n">GetXaxis</span><span class="p">()</span><span class="o">.</span><span class="n">GetXmax</span><span class="p">()</span><span class="o">+</span><span class="n">wx</span><span class="p">,</span>
+                           <span class="n">c</span><span class="o">.</span><span class="n">GetUymin</span><span class="p">()</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span>
+                           <span class="n">sigE</span><span class="o">.</span><span class="n">GetXaxis</span><span class="p">()</span><span class="o">.</span><span class="n">GetXmax</span><span class="p">()</span><span class="o">+</span><span class="n">wx</span><span class="p">,</span>
+                           <span class="mf">0.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="o">*</span><span class="n">maxSignificance</span><span class="p">,</span><span class="mi">510</span><span class="p">,</span> <span class="s">"+L"</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="neural-networks">Neural networks</h2>
+
+<p>The main part of this week was creating a JavaScript visualization for Neural Networks. To do this first, I learnt about
+d3js. I created NeuralNetwork.js, which gets the network properties and create a visualization from that.
+When we call <code class="highlighter-rouge">factory.DrawNeuralNetwork</code> from Jupyter notebook, then this method will get the weights of network from the XML file,
+and creates a JSON string, after this, inserts a JavaScript code in notebook output. This script will call the
+<code class="highlighter-rouge">JsMVA.drawNeuralNetwork(divID, neuralNetworkJSON)</code> function which will use NeuralNetwork.js to produce a visualization for the network.</p>
+
+<ul>
+  <li><strong><em>Example</em></strong>:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">factory</span><span class="o">.</span><span class="n">DrawNeuralNetwork</span><span class="p">(</span><span class="s">"mydataset"</span><span class="p">,</span> <span class="s">"MLP"</span><span class="p">)</span></code></pre></figure>
+
+<ul>
+  <li><strong><em>Result</em></strong>:</li>
+</ul>
+
+<div id="jsmva_nn_1" style="width:800px;height:450px;"></div>
+<script tpye="text/javascript">
+  require.config({
+    paths: {
+      nn: "https://rawgit.com/qati/GSOC16/master/src/js/NeuralNetwork.min"
+    }
+  });
+  var json = '{"variables": ["var0", "var1", "var2", "var3", "var4", "var5"], "layout": {"layer_1": {"nneurons": 12, "neuron_10": {"nsynapses": 1, "weights": [-1.1411497398158936]}, "neuron_0": {"nsynapses": 1, "weights": [-0.7832792519114903]}, "neuron_1": {"nsynapses": 1, "weights": [1.4402805213534686]}, "neuron_2": {"nsynapses": 1, "weights": [0.6543564315599991]}, "neuron_3": {"nsynapses": 1, "weights": [4.145930757497109]}, "neuron_4": {"nsynapses": 1, "weights": [0.19086418445075973]}, "neuron_5": {"nsynapses": 1, "weights": [0.878853603593642]}, "neuron_6": {"nsynapses": 1, "weights": [-0.9404665465834603]}, "neuron_7": {"nsynapses": 1, "weights": [-3.159561787121007]}, "neuron_8": {"nsynapses": 1, "weights": [-3.7387650150947045]}, "neuron_9": {"nsynapses": 1, "weights": [0.6070567434092456]}, "neuron_11": {"nsynapses": 1, "weights": [0.0009326211339015464]}}, "layer_0": {"nneurons": 7, "neuron_0": {"nsynapses": 11, "weights": [-1.3273068745944414, 0.48231150897767733, 1.090721415028992, 8.279816111037606, -2.426090634722934, -2.6175739586158544, -0.013345089415156781, 4.6170543995792235, -1.0933932732964664, -0.9857796021935487, -2.32756731990926]}, "neuron_1": {"nsynapses": 11, "weights": [-1.440944159016986, -3.2467687149956808, -0.5259286864115311, -3.885408804739874, 0.46111958456137087, 0.46275319711132556, 2.417976512433976, -2.5235160070223954, 3.093521334839609, -0.6466783661321622, 1.5514516193543992]}, "neuron_2": {"nsynapses": 11, "weights": [1.438696876543299, 1.425111759209588, -0.04205408207155173, -0.10487092935982709, 1.1549552555784037, 0.05936842136113777, -1.8050360311189455, 0.9265290005022618, 0.40017495917067375, 1.327496949393691, -1.8994528171191971]}, "neuron_3": {"nsynapses": 11, "weights": [-0.5409708096344646, 0.03212077057894268, -0.23812422788758422, 3.922798716660715, 1.5394787289745446, -2.369353724289111, 1.3379123011970675, 3.884746997309633, 0.38269571928911655, 2.0135988315232547, -0.047264104460213056]}, "neuron_4": {"nsynapses": 11, "weights": [-1.2893666306113782, -1.6673340957268823, 0.5145696859191996, 0.16076274662586823, 0.8804112191849535, 0.6017274270113397, 1.575816017405705, 0.8169692658869804, -2.714717901850588, 1.1976252874334676, -2.0789003983510472]}, "neuron_5": {"nsynapses": 11, "weights": [-1.0794496926685433, -1.6363321590079425, -1.2418931275450822, -0.1613533145441646, 0.3905141604739737, -0.58519930990474, 0.7471176066705005, -1.3003724054015435, 1.3992593192223244, 1.4959365337036266, 0.0282459198732311]}, "neuron_6": {"nsynapses": 11, "weights": [0.537646149538981, -3.62763242039259, 2.867094294514915, 6.686124418473289, -0.8867519873164178, -0.8404411699197716, 2.093621478404956, 3.478854363433715, 2.7979690465038107, 0.03765181984263276, -2.9198525991665556]}}, "nlayers": "3", "layer_2": {"neuron_0": {"nsynapses": 0}, "nneurons": 1}}}';
+  var net = JSON.parse(json);
+  require(['nn'], function(nn){
+    nn.draw("jsmva_nn_1", net);
+  });
+</script>
+
+<ul>
+  <li><strong><em>Interaction</em></strong>:
+    <ol>
+      <li><strong>Mouse-over (neuron, synapse):</strong> focusing</li>
+      <li><strong>Zooming and grab and move supported</strong></li>
+      <li><strong>Reset:</strong> double click</li>
+    </ol>
+  </li>
+</ul>
+    
+  </article>
+
+  
+    <div class="related-posts">
+      <h4>Related Posts</h4>
+      <ul>
+        
+          <li>
+            <h5>
+              <a href="/gsoc16/week/14-15/">
+                Weeks 14-15: Deep neural network builder
+                <small>15 Aug 2016</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="/gsoc16/documentation/">
+                Documentation
+                <small>15 Aug 2016</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="/gsoc16/week/9-13/">
+                Weeks 9-13: Interactive training, new user interface, tutorial notebooks, documentation
+                <small>14 Aug 2016</small>
+              </a>
+            </h5>
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <div class="author-info">
+    
+      <div class="author">   <a href="/about">    <img       src="/assets/images/avatar.jpg"      alt="Google Summer of Code Blog" width="60" height="60" />  </a>    <h5>Author</h4>  <h6>    <a href="/about">      Attila Bagoly    </a>  </h5>  <p>    Find me on            <a title="q_atti on Twitter"             href="https://twitter.com/q_atti"             class="twitter" target="_blank">Twitter</a>                /        <a title="battila93 on Facebook"             href="https://facebook.com/battila93"             class="facebook" target="_blank">Facebook</a>           </p></div>
+    
+  
+    
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title="Gmail"          href="mailto:?subject=Attila Bagoly's blog post: Week 6: Blog, bug fixes, neural network visualization&amp;body=/gsoc16/week/6/" class="gmail">          Gmail        </a>    </li>    <li>        <a title="q_atti on Twitter"          href="https://twitter.com/intent/tweet?original_referer=/gsoc16/week/6/&amp;text=Week 6: Blog, bug fixes, neural network visualization&amp;url=/gsoc16/week/6/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>    <li>        <a title=" on Google Plus"            href="https://plus.google.com/share?url=/gsoc16/week/6/"            class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title="battila93 on Facebook"            href="https://www.facebook.com/sharer/sharer.php?u=/gsoc16/week/6/&amp;t=Week 6: Blog, bug fixes, neural network visualization"            class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+
+      
+  </div>
+  
+  
+</div>
+
+      </div>
+      <a href="#0" class="wc-top">Top</a>
+
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle">
+      <span></span>
+    </label>
+
+    <script type="text/javascript">
+      var config = {
+        "browser_warning_page": "/browser-warning/",
+        "disqus_shortname": ""
+      };
+      /* Browser support detection */
+      var browserSupport = (function(){
+        var htmlElemClasses = document.querySelector('html').className.split(' ');
+        for ( var i = 0; i < htmlElemClasses.length; i += 1 ){
+          var className = htmlElemClasses[i];
+          if ( className === 'lt-ie9' ){
+            return true;
+          }
+        }
+      }());
+
+      if (browserSupport){
+        window.location="/browser-warning/";
+      }
+
+      /* To avoid render blocking css */
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'http://fonts.googleapis.com/css?family=PT+Sans';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+
+
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script async type="text/javascript" src="/assets/js/gaya.min.js"></script>
+
+    
+    
+<script>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-78841281-1' , 'auto');  ga('send', 'pageview');</script>
+
+
+  </body>
+</html>

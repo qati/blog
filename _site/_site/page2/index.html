@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Google Summer of Code Blog</title>
+    <meta name="description" content="This is my Blog for Google Summer of Code. I'm working on TMVA (machine learning framework, part of ROOT) and Jupyter integration layer at CERN SFT.
+">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="website"><meta property="og:site_name" content="Google Summer of Code Blog"><meta property="og:description" content="This is my Blog for Google Summer of Code. I'm working on TMVA (machine learning framework, part of ROOT) and Jupyter integration layer at CERN SFT."><meta property="og:url" content="/page2/"><meta property="article:author" content="/about">
+
+    
+
+    
+    <meta name="google-site-verification" content="UA-78841281-1" />
+    
+
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="prefetch" href="">
+    <link rel="canonical" href="/page2/">
+    <link rel="stylesheet"
+    href="/assets/css/main.css">
+
+    <!-- IE Fixes -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">a,.post-title a{color:#205081}a:hover{border-bottom-color:#205081}.sidebar{background-color:#205081}.wc-top,.sidebar-toggle:active,#sidebar-checkbox:checked ~ .sidebar-toggle{background-color:#205081}.sidebar a:hover,.sidebar .sidebar-nav a{border-bottom-color:#255d95}.sidebar .sidebar-nav{border-top-color:#255d95}.sidebar .sidebar-nav a.sidebar-nav-item:hover,.sidebar .sidebar-nav a.sidebar-nav-item:focus{background:#23588d}.sidebar .sidebar-nav .sidebar-nav-item.active{background-color:#1d4875}ul.social-media li>a{background-color:#1d4875;border-color:#255d95;border-bottom-color:#255d95 !important}ul.social-media li>a:hover{background-color:#b4d0ec}.btn{border-color:#205081;background:#205081}.btn:hover,.btn:focus{border-color:#1b436d;background:#1b436d}ul ol{padding-left:30px}ul ul{padding-left:30px}</style>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.js"></script>
+    <script type="text/javascript">
+function getContainer(){
+  var scriptTag = document.getElementsByTagName('script');
+  scriptTag = scriptTag[scriptTag.length - 1];
+  return scriptTag.parentNode;
+}
+require.config({
+  paths:{
+    'blogJsMVA':'https://rawgit.com/qati/GSOC16/master/src/js/blogJsMVA.min'
+  }
+});
+var jsmva_div_num = (function(){
+  var num = 0;
+  return function(action){
+    if (action===undefined){
+      return num;
+    }
+    num += 1;
+    return;
+  }
+})();
+</script>
+
+  </head>
+  <body>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><div class="sidebar" id="sidebar">    <img    src="/assets/images/avatar.jpg"    alt="Google Summer of Code Blog" />    <div class="sidebar-info">      <p>        This is my Blog for Google Summer of Code. I'm working on TMVA (machine learning framework, part of ROOT) and Jupyter integration layer at CERN SFT.      </p>  </div>  <nav class="sidebar-nav">    <a class="sidebar-nav-item"      href="/">      Home    </a>                <a class="sidebar-nav-item "      href="/about">      About me    </a>                <a class="sidebar-nav-item "      href="/archive">      Blog Archive    </a>        <a class="sidebar-nav-item"      href="http://github.com/qati"      target="_blank">      GitHub    </a>  </nav>  <div class="sidebar-info small">     <p>       Made by <a href="http://gayan.me" target="_blank">Gayan Virajith</a> For everyone.       Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>     </p>  </div>  <ul class="social-media">        <li>        <a title="q_atti on Twitter"             href="https://twitter.com/q_atti"             class="twitter wc-img-replace" target="_blank">Twitter</a>    </li>                   <li>        <a title="battila93 on Facebook"             href="https://facebook.com/battila93"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>            <li>        <a title="qati on Github"             href="https://github.com/qati"             class="github wc-img-replace" target="_blank">Github</a>    </li>                 <li>        <a title="Subscribe via RSS"             href="/feed.xml"            class="rss wc-img-replace" target="_blank">            RSS        </a>    </li></ul></div>
+
+    <div class="main-wrapper">
+      <div class="header">
+        <div class="container">
+          <div class="header-logo"><a href="/"   title="Google Summer of Code Blog">  <img     src="/assets/images/logo.png"    alt="Google Summer of Code Blog" /></a></div>
+          <div class="header-title">
+            <a href="/"
+              title="Google Summer of Code Blog">
+              <h3>Google Summer of Code Blog<small>CERN SFT</small></h3>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+          <div class="posts">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
+      <a href="/gsoc16/week/4/">
+        Week 4: New structure, correlation matrix, input variables
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      gsoc16 and part-time_week_extra
+      </span> |
+    
+    <span class="post-date">
+    May 26, 2016  
+    </span>
+    </p>
+
+    <p>This week I moved from old <a href="https://github.com/qati/JIMVA">repository</a> to new <a href="https://github.com/qati/GSOC16">GSOC</a> repository.</p>
+
+
+    <a href="/gsoc16/week/4/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
+      <a href="/gsoc16/week/3/">
+        Week 3: Correaltion matrix2
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      gsoc16 and part-time_week
+      </span> |
+    
+    <span class="post-date">
+    May 20, 2016  
+    </span>
+    </p>
+
+    <p>In this week I learnt about Git and Docker. I created a <a href="https://github.com/qati/JIMVA">repository</a> to my project, and I created a Docker file to binder.</p>
+
+
+    <a href="/gsoc16/week/3/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
+      <a href="/gsoc16/week/2/">
+        Week 2: Correaltion matrix
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      gsoc16 and part-time_week
+      </span> |
+    
+    <span class="post-date">
+    May 12, 2016  
+    </span>
+    </p>
+
+    <p>Last week I talked with my mentors about how the plotting needs to be done: instead of reading the TMVA output file, we need
+to get the data directly from TMVA.</p>
+
+
+    <a href="/gsoc16/week/2/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
+      <a href="/gsoc16/week/1/">
+        Week 1: Learning, JsROOT example
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      gsoc16 and full-time_week
+      </span> |
+    
+    <span class="post-date">
+    May 2, 2016  
+    </span>
+    </p>
+
+    <p>Because I haven’t been blogging at this time, I try to remember what happened in this week.
+April 22 I got the email from Google that I will be participating in GSOC16, right after this I wrote
+email to my mentors (Sergei V. Gleyzer and Enric Tejedor). Sergei said I should take a look at TMVAGui, we also
+discussed that we will use JSROOT. We fixed the first kick-off meeting to May 3.</p>
+
+
+    <a href="/gsoc16/week/1/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
+      <a href="/gsoc16/first-post/">
+        First post
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      gsoc16
+      </span> |
+    
+    <span class="post-date">
+    May 1, 2016  
+    </span>
+    </p>
+
+    <p>I was selected to Google Summer of Code 2016 program. My organization will be the CERN SFT and I will work on ROOT::TMVA framework, which is a  machine learning framework commonly used in particle physics. My project is <code class="highlighter-rouge">Integrating machine learning in Jupyter notebooks</code>. I will use this blog to post about my work in this summer.</p>
+
+    <a href="/gsoc16/first-post/">
+      Continue reading »
+    </a>
+  </article>
+  
+</div>
+
+
+<div class="pagination">
+  
+  
+    <span class="pagination-item older btn-disabled">Older</span>
+  
+  
+  
+    <a class="pagination-item newer btn " href="/">Newer</a>
+    
+  
+</div>
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "/"
+    }
+}
+</script>
+
+      </div>
+      <a href="#0" class="wc-top">Top</a>
+
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle">
+      <span></span>
+    </label>
+
+    <script type="text/javascript">
+      var config = {
+        "browser_warning_page": "/browser-warning/",
+        "disqus_shortname": ""
+      };
+      /* Browser support detection */
+      var browserSupport = (function(){
+        var htmlElemClasses = document.querySelector('html').className.split(' ');
+        for ( var i = 0; i < htmlElemClasses.length; i += 1 ){
+          var className = htmlElemClasses[i];
+          if ( className === 'lt-ie9' ){
+            return true;
+          }
+        }
+      }());
+
+      if (browserSupport){
+        window.location="/browser-warning/";
+      }
+
+      /* To avoid render blocking css */
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'http://fonts.googleapis.com/css?family=PT+Sans';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+
+
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script async type="text/javascript" src="/assets/js/gaya.min.js"></script>
+
+    
+    
+<script>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-78841281-1' , 'auto');  ga('send', 'pageview');</script>
+
+
+  </body>
+</html>
